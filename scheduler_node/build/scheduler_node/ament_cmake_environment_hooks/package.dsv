@@ -1,0 +1,4 @@
+source;share/scheduler_node/local_setup.bash
+source;share/scheduler_node/local_setup.dsv
+source;share/scheduler_node/local_setup.sh
+source;share/scheduler_node/local_setup.zsh

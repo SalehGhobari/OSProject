@@ -1,0 +1,93 @@
+[0.517s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'scheduler_node']
+[0.517s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['scheduler_node'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x72bf7421cb30>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x72bf7421c9e0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x72bf7421c9e0>>)
+[0.610s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.610s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.610s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.610s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.610s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.610s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.610s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/saleh/Desktop/OSProject/scheduler_node'
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.611s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.663s] DEBUG:colcon.colcon_core.package_identification:Package '.' with type 'ros.ament_cmake' and name 'scheduler_node'
+[0.663s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.663s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.663s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.663s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.663s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.700s] Level 5:colcon.colcon_core.verb:set package 'scheduler_node' build argument 'cmake_args' from command line to 'None'
+[0.701s] Level 5:colcon.colcon_core.verb:set package 'scheduler_node' build argument 'cmake_target' from command line to 'None'
+[0.701s] Level 5:colcon.colcon_core.verb:set package 'scheduler_node' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.701s] Level 5:colcon.colcon_core.verb:set package 'scheduler_node' build argument 'cmake_clean_cache' from command line to 'False'
+[0.701s] Level 5:colcon.colcon_core.verb:set package 'scheduler_node' build argument 'cmake_clean_first' from command line to 'False'
+[0.701s] Level 5:colcon.colcon_core.verb:set package 'scheduler_node' build argument 'cmake_force_configure' from command line to 'False'
+[0.701s] Level 5:colcon.colcon_core.verb:set package 'scheduler_node' build argument 'ament_cmake_args' from command line to 'None'
+[0.701s] Level 5:colcon.colcon_core.verb:set package 'scheduler_node' build argument 'catkin_cmake_args' from command line to 'None'
+[0.701s] Level 5:colcon.colcon_core.verb:set package 'scheduler_node' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.701s] DEBUG:colcon.colcon_core.verb:Building package 'scheduler_node' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node', 'merge_install': False, 'path': '/home/saleh/Desktop/OSProject/scheduler_node', 'symlink_install': False, 'test_result_base': None}
+[0.701s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.703s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.703s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/saleh/Desktop/OSProject/scheduler_node' with build type 'ament_cmake'
+[0.704s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/saleh/Desktop/OSProject/scheduler_node'
+[0.717s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.717s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.746s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/saleh/Desktop/OSProject/scheduler_node -DCMAKE_INSTALL_PREFIX=/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node
+[2.506s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/saleh/Desktop/OSProject/scheduler_node -DCMAKE_INSTALL_PREFIX=/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node
+[2.508s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node -- -j4 -l4
+[3.129s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node -- -j4 -l4
+[3.141s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node
+[3.152s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(scheduler_node)
+[3.153s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node
+[3.163s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node' for CMake module files
+[3.164s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node' for CMake config files
+[3.164s] Level 1:colcon.colcon_core.shell:create_environment_hook('scheduler_node', 'cmake_prefix_path')
+[3.164s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/hook/cmake_prefix_path.dsv'
+[3.165s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/hook/cmake_prefix_path.sh'
+[3.166s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib'
+[3.167s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/bin'
+[3.167s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/pkgconfig/scheduler_node.pc'
+[3.168s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/python3.12/site-packages'
+[3.168s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/bin'
+[3.169s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.dsv'
+[3.170s] INFO:colcon.colcon_core.shell:Creating package script '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.sh'
+[3.171s] INFO:colcon.colcon_core.shell:Creating package script '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.bash'
+[3.173s] INFO:colcon.colcon_core.shell:Creating package script '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.zsh'
+[3.176s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/colcon-core/packages/scheduler_node)
+[3.176s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(scheduler_node)
+[3.177s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node' for CMake module files
+[3.177s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node' for CMake config files
+[3.177s] Level 1:colcon.colcon_core.shell:create_environment_hook('scheduler_node', 'cmake_prefix_path')
+[3.177s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/hook/cmake_prefix_path.dsv'
+[3.178s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/hook/cmake_prefix_path.sh'
+[3.179s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib'
+[3.179s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/bin'
+[3.179s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/pkgconfig/scheduler_node.pc'
+[3.179s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/python3.12/site-packages'
+[3.179s] Level 1:colcon.colcon_core.environment:checking '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/bin'
+[3.180s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.dsv'
+[3.180s] INFO:colcon.colcon_core.shell:Creating package script '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.sh'
+[3.181s] INFO:colcon.colcon_core.shell:Creating package script '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.bash'
+[3.181s] INFO:colcon.colcon_core.shell:Creating package script '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.zsh'
+[3.182s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/colcon-core/packages/scheduler_node)
+[3.182s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.183s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.183s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[3.183s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.206s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.206s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.206s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.242s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.242s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/saleh/Desktop/OSProject/scheduler_node/install/local_setup.sh'
+[3.243s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/saleh/Desktop/OSProject/scheduler_node/install/_local_setup_util_sh.py'
+[3.244s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/saleh/Desktop/OSProject/scheduler_node/install/setup.sh'
+[3.246s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/saleh/Desktop/OSProject/scheduler_node/install/local_setup.bash'
+[3.246s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/saleh/Desktop/OSProject/scheduler_node/install/setup.bash'
+[3.247s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/saleh/Desktop/OSProject/scheduler_node/install/local_setup.zsh'
+[3.248s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/saleh/Desktop/OSProject/scheduler_node/install/setup.zsh'
