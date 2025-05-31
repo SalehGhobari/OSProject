@@ -63,7 +63,12 @@ CMAKE_BINARY_DIR = /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/scheduler_node.dir/all
+all: CMakeFiles/roundrobintaskscheduler.dir/all
+all: CMakeFiles/dummytasknoderr.dir/all
+all: CMakeFiles/dummytasknodefcfs.dir/all
+all: CMakeFiles/fcfsscheduler.dir/all
+all: CMakeFiles/priorityscheduler.dir/all
+all: CMakeFiles/dummytasknodepriority.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -73,7 +78,12 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/scheduler_node_uninstall.dir/clean
-clean: CMakeFiles/scheduler_node.dir/clean
+clean: CMakeFiles/roundrobintaskscheduler.dir/clean
+clean: CMakeFiles/dummytasknoderr.dir/clean
+clean: CMakeFiles/dummytasknodefcfs.dir/clean
+clean: CMakeFiles/fcfsscheduler.dir/clean
+clean: CMakeFiles/priorityscheduler.dir/clean
+clean: CMakeFiles/dummytasknodepriority.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -129,30 +139,160 @@ CMakeFiles/scheduler_node_uninstall.dir/clean:
 .PHONY : CMakeFiles/scheduler_node_uninstall.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/scheduler_node.dir
+# Target rules for target CMakeFiles/roundrobintaskscheduler.dir
 
 # All Build rule for target.
-CMakeFiles/scheduler_node.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/scheduler_node.dir/build.make CMakeFiles/scheduler_node.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/scheduler_node.dir/build.make CMakeFiles/scheduler_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles --progress-num=1,2 "Built target scheduler_node"
-.PHONY : CMakeFiles/scheduler_node.dir/all
+CMakeFiles/roundrobintaskscheduler.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/roundrobintaskscheduler.dir/build.make CMakeFiles/roundrobintaskscheduler.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/roundrobintaskscheduler.dir/build.make CMakeFiles/roundrobintaskscheduler.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles --progress-num=11,12 "Built target roundrobintaskscheduler"
+.PHONY : CMakeFiles/roundrobintaskscheduler.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/scheduler_node.dir/rule: cmake_check_build_system
+CMakeFiles/roundrobintaskscheduler.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/scheduler_node.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/roundrobintaskscheduler.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 0
-.PHONY : CMakeFiles/scheduler_node.dir/rule
+.PHONY : CMakeFiles/roundrobintaskscheduler.dir/rule
 
 # Convenience name for target.
-scheduler_node: CMakeFiles/scheduler_node.dir/rule
-.PHONY : scheduler_node
+roundrobintaskscheduler: CMakeFiles/roundrobintaskscheduler.dir/rule
+.PHONY : roundrobintaskscheduler
 
 # clean rule for target.
-CMakeFiles/scheduler_node.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/scheduler_node.dir/build.make CMakeFiles/scheduler_node.dir/clean
-.PHONY : CMakeFiles/scheduler_node.dir/clean
+CMakeFiles/roundrobintaskscheduler.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/roundrobintaskscheduler.dir/build.make CMakeFiles/roundrobintaskscheduler.dir/clean
+.PHONY : CMakeFiles/roundrobintaskscheduler.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/dummytasknoderr.dir
+
+# All Build rule for target.
+CMakeFiles/dummytasknoderr.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknoderr.dir/build.make CMakeFiles/dummytasknoderr.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknoderr.dir/build.make CMakeFiles/dummytasknoderr.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles --progress-num=5,6 "Built target dummytasknoderr"
+.PHONY : CMakeFiles/dummytasknoderr.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/dummytasknoderr.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dummytasknoderr.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 0
+.PHONY : CMakeFiles/dummytasknoderr.dir/rule
+
+# Convenience name for target.
+dummytasknoderr: CMakeFiles/dummytasknoderr.dir/rule
+.PHONY : dummytasknoderr
+
+# clean rule for target.
+CMakeFiles/dummytasknoderr.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknoderr.dir/build.make CMakeFiles/dummytasknoderr.dir/clean
+.PHONY : CMakeFiles/dummytasknoderr.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/dummytasknodefcfs.dir
+
+# All Build rule for target.
+CMakeFiles/dummytasknodefcfs.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodefcfs.dir/build.make CMakeFiles/dummytasknodefcfs.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodefcfs.dir/build.make CMakeFiles/dummytasknodefcfs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles --progress-num=1,2 "Built target dummytasknodefcfs"
+.PHONY : CMakeFiles/dummytasknodefcfs.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/dummytasknodefcfs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dummytasknodefcfs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 0
+.PHONY : CMakeFiles/dummytasknodefcfs.dir/rule
+
+# Convenience name for target.
+dummytasknodefcfs: CMakeFiles/dummytasknodefcfs.dir/rule
+.PHONY : dummytasknodefcfs
+
+# clean rule for target.
+CMakeFiles/dummytasknodefcfs.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodefcfs.dir/build.make CMakeFiles/dummytasknodefcfs.dir/clean
+.PHONY : CMakeFiles/dummytasknodefcfs.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/fcfsscheduler.dir
+
+# All Build rule for target.
+CMakeFiles/fcfsscheduler.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcfsscheduler.dir/build.make CMakeFiles/fcfsscheduler.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcfsscheduler.dir/build.make CMakeFiles/fcfsscheduler.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles --progress-num=7,8 "Built target fcfsscheduler"
+.PHONY : CMakeFiles/fcfsscheduler.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/fcfsscheduler.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/fcfsscheduler.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 0
+.PHONY : CMakeFiles/fcfsscheduler.dir/rule
+
+# Convenience name for target.
+fcfsscheduler: CMakeFiles/fcfsscheduler.dir/rule
+.PHONY : fcfsscheduler
+
+# clean rule for target.
+CMakeFiles/fcfsscheduler.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcfsscheduler.dir/build.make CMakeFiles/fcfsscheduler.dir/clean
+.PHONY : CMakeFiles/fcfsscheduler.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/priorityscheduler.dir
+
+# All Build rule for target.
+CMakeFiles/priorityscheduler.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/priorityscheduler.dir/build.make CMakeFiles/priorityscheduler.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/priorityscheduler.dir/build.make CMakeFiles/priorityscheduler.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles --progress-num=9,10 "Built target priorityscheduler"
+.PHONY : CMakeFiles/priorityscheduler.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/priorityscheduler.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/priorityscheduler.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 0
+.PHONY : CMakeFiles/priorityscheduler.dir/rule
+
+# Convenience name for target.
+priorityscheduler: CMakeFiles/priorityscheduler.dir/rule
+.PHONY : priorityscheduler
+
+# clean rule for target.
+CMakeFiles/priorityscheduler.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/priorityscheduler.dir/build.make CMakeFiles/priorityscheduler.dir/clean
+.PHONY : CMakeFiles/priorityscheduler.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/dummytasknodepriority.dir
+
+# All Build rule for target.
+CMakeFiles/dummytasknodepriority.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodepriority.dir/build.make CMakeFiles/dummytasknodepriority.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodepriority.dir/build.make CMakeFiles/dummytasknodepriority.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles --progress-num=3,4 "Built target dummytasknodepriority"
+.PHONY : CMakeFiles/dummytasknodepriority.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/dummytasknodepriority.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/dummytasknodepriority.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node/CMakeFiles 0
+.PHONY : CMakeFiles/dummytasknodepriority.dir/rule
+
+# Convenience name for target.
+dummytasknodepriority: CMakeFiles/dummytasknodepriority.dir/rule
+.PHONY : dummytasknodepriority
+
+# clean rule for target.
+CMakeFiles/dummytasknodepriority.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodepriority.dir/build.make CMakeFiles/dummytasknodepriority.dir/clean
+.PHONY : CMakeFiles/dummytasknodepriority.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

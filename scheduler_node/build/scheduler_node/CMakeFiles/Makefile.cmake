@@ -710,5 +710,10 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/uninstall.dir/DependInfo.cmake"
   "CMakeFiles/scheduler_node_uninstall.dir/DependInfo.cmake"
-  "CMakeFiles/scheduler_node.dir/DependInfo.cmake"
+  "CMakeFiles/roundrobintaskscheduler.dir/DependInfo.cmake"
+  "CMakeFiles/dummytasknoderr.dir/DependInfo.cmake"
+  "CMakeFiles/dummytasknodefcfs.dir/DependInfo.cmake"
+  "CMakeFiles/fcfsscheduler.dir/DependInfo.cmake"
+  "CMakeFiles/priorityscheduler.dir/DependInfo.cmake"
+  "CMakeFiles/dummytasknodepriority.dir/DependInfo.cmake"
   )

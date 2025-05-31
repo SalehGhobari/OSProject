@@ -198,41 +198,226 @@ scheduler_node_uninstall/fast:
 .PHONY : scheduler_node_uninstall/fast
 
 #=============================================================================
-# Target rules for targets named scheduler_node
+# Target rules for targets named roundrobintaskscheduler
 
 # Build rule for target.
-scheduler_node: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 scheduler_node
-.PHONY : scheduler_node
+roundrobintaskscheduler: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 roundrobintaskscheduler
+.PHONY : roundrobintaskscheduler
 
 # fast build rule for target.
-scheduler_node/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/scheduler_node.dir/build.make CMakeFiles/scheduler_node.dir/build
-.PHONY : scheduler_node/fast
+roundrobintaskscheduler/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/roundrobintaskscheduler.dir/build.make CMakeFiles/roundrobintaskscheduler.dir/build
+.PHONY : roundrobintaskscheduler/fast
 
-src/scheduler_node.o: src/scheduler_node.cpp.o
-.PHONY : src/scheduler_node.o
+#=============================================================================
+# Target rules for targets named dummytasknoderr
+
+# Build rule for target.
+dummytasknoderr: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dummytasknoderr
+.PHONY : dummytasknoderr
+
+# fast build rule for target.
+dummytasknoderr/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknoderr.dir/build.make CMakeFiles/dummytasknoderr.dir/build
+.PHONY : dummytasknoderr/fast
+
+#=============================================================================
+# Target rules for targets named dummytasknodefcfs
+
+# Build rule for target.
+dummytasknodefcfs: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dummytasknodefcfs
+.PHONY : dummytasknodefcfs
+
+# fast build rule for target.
+dummytasknodefcfs/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodefcfs.dir/build.make CMakeFiles/dummytasknodefcfs.dir/build
+.PHONY : dummytasknodefcfs/fast
+
+#=============================================================================
+# Target rules for targets named fcfsscheduler
+
+# Build rule for target.
+fcfsscheduler: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fcfsscheduler
+.PHONY : fcfsscheduler
+
+# fast build rule for target.
+fcfsscheduler/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcfsscheduler.dir/build.make CMakeFiles/fcfsscheduler.dir/build
+.PHONY : fcfsscheduler/fast
+
+#=============================================================================
+# Target rules for targets named priorityscheduler
+
+# Build rule for target.
+priorityscheduler: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 priorityscheduler
+.PHONY : priorityscheduler
+
+# fast build rule for target.
+priorityscheduler/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/priorityscheduler.dir/build.make CMakeFiles/priorityscheduler.dir/build
+.PHONY : priorityscheduler/fast
+
+#=============================================================================
+# Target rules for targets named dummytasknodepriority
+
+# Build rule for target.
+dummytasknodepriority: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dummytasknodepriority
+.PHONY : dummytasknodepriority
+
+# fast build rule for target.
+dummytasknodepriority/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodepriority.dir/build.make CMakeFiles/dummytasknodepriority.dir/build
+.PHONY : dummytasknodepriority/fast
+
+src/dummytasknodefcfs.o: src/dummytasknodefcfs.cpp.o
+.PHONY : src/dummytasknodefcfs.o
 
 # target to build an object file
-src/scheduler_node.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/scheduler_node.dir/build.make CMakeFiles/scheduler_node.dir/src/scheduler_node.cpp.o
-.PHONY : src/scheduler_node.cpp.o
+src/dummytasknodefcfs.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodefcfs.dir/build.make CMakeFiles/dummytasknodefcfs.dir/src/dummytasknodefcfs.cpp.o
+.PHONY : src/dummytasknodefcfs.cpp.o
 
-src/scheduler_node.i: src/scheduler_node.cpp.i
-.PHONY : src/scheduler_node.i
+src/dummytasknodefcfs.i: src/dummytasknodefcfs.cpp.i
+.PHONY : src/dummytasknodefcfs.i
 
 # target to preprocess a source file
-src/scheduler_node.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/scheduler_node.dir/build.make CMakeFiles/scheduler_node.dir/src/scheduler_node.cpp.i
-.PHONY : src/scheduler_node.cpp.i
+src/dummytasknodefcfs.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodefcfs.dir/build.make CMakeFiles/dummytasknodefcfs.dir/src/dummytasknodefcfs.cpp.i
+.PHONY : src/dummytasknodefcfs.cpp.i
 
-src/scheduler_node.s: src/scheduler_node.cpp.s
-.PHONY : src/scheduler_node.s
+src/dummytasknodefcfs.s: src/dummytasknodefcfs.cpp.s
+.PHONY : src/dummytasknodefcfs.s
 
 # target to generate assembly for a file
-src/scheduler_node.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/scheduler_node.dir/build.make CMakeFiles/scheduler_node.dir/src/scheduler_node.cpp.s
-.PHONY : src/scheduler_node.cpp.s
+src/dummytasknodefcfs.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodefcfs.dir/build.make CMakeFiles/dummytasknodefcfs.dir/src/dummytasknodefcfs.cpp.s
+.PHONY : src/dummytasknodefcfs.cpp.s
+
+src/dummytasknodepriority.o: src/dummytasknodepriority.cpp.o
+.PHONY : src/dummytasknodepriority.o
+
+# target to build an object file
+src/dummytasknodepriority.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodepriority.dir/build.make CMakeFiles/dummytasknodepriority.dir/src/dummytasknodepriority.cpp.o
+.PHONY : src/dummytasknodepriority.cpp.o
+
+src/dummytasknodepriority.i: src/dummytasknodepriority.cpp.i
+.PHONY : src/dummytasknodepriority.i
+
+# target to preprocess a source file
+src/dummytasknodepriority.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodepriority.dir/build.make CMakeFiles/dummytasknodepriority.dir/src/dummytasknodepriority.cpp.i
+.PHONY : src/dummytasknodepriority.cpp.i
+
+src/dummytasknodepriority.s: src/dummytasknodepriority.cpp.s
+.PHONY : src/dummytasknodepriority.s
+
+# target to generate assembly for a file
+src/dummytasknodepriority.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknodepriority.dir/build.make CMakeFiles/dummytasknodepriority.dir/src/dummytasknodepriority.cpp.s
+.PHONY : src/dummytasknodepriority.cpp.s
+
+src/dummytasknoderr.o: src/dummytasknoderr.cpp.o
+.PHONY : src/dummytasknoderr.o
+
+# target to build an object file
+src/dummytasknoderr.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknoderr.dir/build.make CMakeFiles/dummytasknoderr.dir/src/dummytasknoderr.cpp.o
+.PHONY : src/dummytasknoderr.cpp.o
+
+src/dummytasknoderr.i: src/dummytasknoderr.cpp.i
+.PHONY : src/dummytasknoderr.i
+
+# target to preprocess a source file
+src/dummytasknoderr.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknoderr.dir/build.make CMakeFiles/dummytasknoderr.dir/src/dummytasknoderr.cpp.i
+.PHONY : src/dummytasknoderr.cpp.i
+
+src/dummytasknoderr.s: src/dummytasknoderr.cpp.s
+.PHONY : src/dummytasknoderr.s
+
+# target to generate assembly for a file
+src/dummytasknoderr.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dummytasknoderr.dir/build.make CMakeFiles/dummytasknoderr.dir/src/dummytasknoderr.cpp.s
+.PHONY : src/dummytasknoderr.cpp.s
+
+src/fcfsscheduler.o: src/fcfsscheduler.cpp.o
+.PHONY : src/fcfsscheduler.o
+
+# target to build an object file
+src/fcfsscheduler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcfsscheduler.dir/build.make CMakeFiles/fcfsscheduler.dir/src/fcfsscheduler.cpp.o
+.PHONY : src/fcfsscheduler.cpp.o
+
+src/fcfsscheduler.i: src/fcfsscheduler.cpp.i
+.PHONY : src/fcfsscheduler.i
+
+# target to preprocess a source file
+src/fcfsscheduler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcfsscheduler.dir/build.make CMakeFiles/fcfsscheduler.dir/src/fcfsscheduler.cpp.i
+.PHONY : src/fcfsscheduler.cpp.i
+
+src/fcfsscheduler.s: src/fcfsscheduler.cpp.s
+.PHONY : src/fcfsscheduler.s
+
+# target to generate assembly for a file
+src/fcfsscheduler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fcfsscheduler.dir/build.make CMakeFiles/fcfsscheduler.dir/src/fcfsscheduler.cpp.s
+.PHONY : src/fcfsscheduler.cpp.s
+
+src/priorityscheduler.o: src/priorityscheduler.cpp.o
+.PHONY : src/priorityscheduler.o
+
+# target to build an object file
+src/priorityscheduler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/priorityscheduler.dir/build.make CMakeFiles/priorityscheduler.dir/src/priorityscheduler.cpp.o
+.PHONY : src/priorityscheduler.cpp.o
+
+src/priorityscheduler.i: src/priorityscheduler.cpp.i
+.PHONY : src/priorityscheduler.i
+
+# target to preprocess a source file
+src/priorityscheduler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/priorityscheduler.dir/build.make CMakeFiles/priorityscheduler.dir/src/priorityscheduler.cpp.i
+.PHONY : src/priorityscheduler.cpp.i
+
+src/priorityscheduler.s: src/priorityscheduler.cpp.s
+.PHONY : src/priorityscheduler.s
+
+# target to generate assembly for a file
+src/priorityscheduler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/priorityscheduler.dir/build.make CMakeFiles/priorityscheduler.dir/src/priorityscheduler.cpp.s
+.PHONY : src/priorityscheduler.cpp.s
+
+src/roundrobintaskscheduler.o: src/roundrobintaskscheduler.cpp.o
+.PHONY : src/roundrobintaskscheduler.o
+
+# target to build an object file
+src/roundrobintaskscheduler.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/roundrobintaskscheduler.dir/build.make CMakeFiles/roundrobintaskscheduler.dir/src/roundrobintaskscheduler.cpp.o
+.PHONY : src/roundrobintaskscheduler.cpp.o
+
+src/roundrobintaskscheduler.i: src/roundrobintaskscheduler.cpp.i
+.PHONY : src/roundrobintaskscheduler.i
+
+# target to preprocess a source file
+src/roundrobintaskscheduler.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/roundrobintaskscheduler.dir/build.make CMakeFiles/roundrobintaskscheduler.dir/src/roundrobintaskscheduler.cpp.i
+.PHONY : src/roundrobintaskscheduler.cpp.i
+
+src/roundrobintaskscheduler.s: src/roundrobintaskscheduler.cpp.s
+.PHONY : src/roundrobintaskscheduler.s
+
+# target to generate assembly for a file
+src/roundrobintaskscheduler.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/roundrobintaskscheduler.dir/build.make CMakeFiles/roundrobintaskscheduler.dir/src/roundrobintaskscheduler.cpp.s
+.PHONY : src/roundrobintaskscheduler.cpp.s
 
 # Help Target
 help:
@@ -249,10 +434,30 @@ help:
 	@echo "... test"
 	@echo "... scheduler_node_uninstall"
 	@echo "... uninstall"
-	@echo "... scheduler_node"
-	@echo "... src/scheduler_node.o"
-	@echo "... src/scheduler_node.i"
-	@echo "... src/scheduler_node.s"
+	@echo "... dummytasknodefcfs"
+	@echo "... dummytasknodepriority"
+	@echo "... dummytasknoderr"
+	@echo "... fcfsscheduler"
+	@echo "... priorityscheduler"
+	@echo "... roundrobintaskscheduler"
+	@echo "... src/dummytasknodefcfs.o"
+	@echo "... src/dummytasknodefcfs.i"
+	@echo "... src/dummytasknodefcfs.s"
+	@echo "... src/dummytasknodepriority.o"
+	@echo "... src/dummytasknodepriority.i"
+	@echo "... src/dummytasknodepriority.s"
+	@echo "... src/dummytasknoderr.o"
+	@echo "... src/dummytasknoderr.i"
+	@echo "... src/dummytasknoderr.s"
+	@echo "... src/fcfsscheduler.o"
+	@echo "... src/fcfsscheduler.i"
+	@echo "... src/fcfsscheduler.s"
+	@echo "... src/priorityscheduler.o"
+	@echo "... src/priorityscheduler.i"
+	@echo "... src/priorityscheduler.s"
+	@echo "... src/roundrobintaskscheduler.o"
+	@echo "... src/roundrobintaskscheduler.i"
+	@echo "... src/roundrobintaskscheduler.s"
 .PHONY : help
 
 

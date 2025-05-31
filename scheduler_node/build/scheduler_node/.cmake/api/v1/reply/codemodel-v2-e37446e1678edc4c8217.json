@@ -1,0 +1,124 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-275138471747bb12646b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "scheduler_node",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "dummytasknodefcfs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dummytasknodefcfs-4f2d297b7bb7efeb0d99.json",
+					"name" : "dummytasknodefcfs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dummytasknodepriority::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dummytasknodepriority-e3d3ed4fc08f4a6e2983.json",
+					"name" : "dummytasknodepriority",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dummytasknoderr::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dummytasknoderr-3fc09410a5e69377fbd4.json",
+					"name" : "dummytasknoderr",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "fcfsscheduler::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-fcfsscheduler-f86498b08d73f5c22ce5.json",
+					"name" : "fcfsscheduler",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "priorityscheduler::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-priorityscheduler-4ac2fe3a88ab455fa60a.json",
+					"name" : "priorityscheduler",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "roundrobintaskscheduler::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-roundrobintaskscheduler-ef0a534c60a8b3a5204d.json",
+					"name" : "roundrobintaskscheduler",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "scheduler_node_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-scheduler_node_uninstall-c75975b06d5005522c51.json",
+					"name" : "scheduler_node_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-79292f9e62d8f218dc48.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node",
+		"source" : "/home/saleh/Desktop/OSProject/scheduler_node"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
