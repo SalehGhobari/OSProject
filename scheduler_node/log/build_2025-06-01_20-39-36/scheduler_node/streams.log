@@ -1,0 +1,35 @@
+[0.029s] Invoking command in '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node -- -j8 -l8
+[0.104s] [ 50%] Built target priorityscheduler
+[0.105s] [ 50%] Built target dummytasknoderr
+[0.105s] [ 50%] Built target dummytasknodefcfs
+[0.105s] [ 66%] Built target roundrobintaskscheduler
+[0.109s] [ 83%] Built target dummytasknodepriority
+[0.115s] [ 91%] [32mBuilding CXX object CMakeFiles/fcfsscheduler.dir/src/fcfsscheduler.cpp.o[0m
+[9.842s] [100%] [32m[1mLinking CXX executable fcfsscheduler[0m
+[10.244s] [100%] Built target fcfsscheduler
+[10.261s] Invoked command in '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node -- -j8 -l8
+[10.272s] Invoking command in '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node
+[10.284s] -- Install configuration: ""
+[10.284s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/roundrobintaskscheduler
+[10.285s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/dummytasknoderr
+[10.285s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/dummytasknodefcfs
+[10.286s] -- Installing: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/fcfsscheduler
+[10.295s] -- Set non-toolchain portion of runtime path of "/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/fcfsscheduler" to ""
+[10.296s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/priorityscheduler
+[10.296s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/dummytasknodepriority
+[10.297s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/ament_index/resource_index/package_run_dependencies/scheduler_node
+[10.297s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/ament_index/resource_index/parent_prefix_path/scheduler_node
+[10.297s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/ament_prefix_path.sh
+[10.297s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/ament_prefix_path.dsv
+[10.298s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/path.sh
+[10.298s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/path.dsv
+[10.298s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.bash
+[10.298s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.sh
+[10.298s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.zsh
+[10.298s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.dsv
+[10.298s] -- Installing: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.dsv
+[10.299s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/ament_index/resource_index/packages/scheduler_node
+[10.299s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/cmake/scheduler_nodeConfig.cmake
+[10.299s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/cmake/scheduler_nodeConfig-version.cmake
+[10.299s] -- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.xml
+[10.301s] Invoked command in '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node

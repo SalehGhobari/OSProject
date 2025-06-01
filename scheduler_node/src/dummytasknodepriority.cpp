@@ -58,7 +58,7 @@ private:
         // Format: "task_id:priority"
         registration_msg.data = task_id_ + ":" + std::to_string(priority_);
         
-        RCLCPP_INFO(this->get_logger(), "📝 Registering with Priority scheduler as '%s' (Priority: %d)", 
+        RCLCPP_INFO(this->get_logger(), "Registering with Priority scheduler as '%s' (Priority: %d)", 
                    task_id_.c_str(), priority_);
         register_publisher_->publish(registration_msg);
         
@@ -76,7 +76,7 @@ private:
             register_timer_->cancel();
             
             RCLCPP_INFO(this->get_logger(), 
-                       "🚀 [Priority: %d] Granted execution permission! Starting task execution #%d...", 
+                       "[Priority: %d] Granted execution permission! Starting task execution #%d...", 
                        priority_, execution_count_);
             
             // Execute the task in a separate thread to avoid blocking ROS callbacks
@@ -100,7 +100,7 @@ private:
         }
         
         RCLCPP_INFO(this->get_logger(), 
-                   "⚙️  [Priority: %d] Executing task for %d ms...", 
+                   "[Priority: %d] Executing task for %d ms...", 
                    priority_, execution_time_ms);
         
         // Simulate different phases of work with priority-aware messaging
@@ -115,7 +115,7 @@ private:
             simulate_cpu_work();
             
             RCLCPP_INFO(this->get_logger(), 
-                       "  📈 [P%d] Phase %d/%d completed", 
+                       "  [P%d] Phase %d/%d completed", 
                        priority_, phase, phases);
         }
         
@@ -123,7 +123,7 @@ private:
         auto actual_duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
         
         RCLCPP_INFO(this->get_logger(), 
-                   "✅ [Priority: %d] Task execution completed! (Actual time: %ld ms)", 
+                   "[Priority: %d] Task execution completed! (Actual time: %ld ms)", 
                    priority_, actual_duration.count());
         
         // Notify scheduler of completion
@@ -133,14 +133,14 @@ private:
         
         is_executing_ = false;
         
-        RCLCPP_INFO(this->get_logger(), "📤 [Priority: %d] Sent completion notification to scheduler", priority_);
+        RCLCPP_INFO(this->get_logger(), "[Priority: %d] Sent completion notification to scheduler", priority_);
         
         // Re-register for next execution cycle after a delay
         auto reregister_delay = std::chrono::milliseconds(1000 + (rand() % 2000)); // 1-3 seconds
         reregister_timer_ = this->create_wall_timer(
             reregister_delay,
             [this]() {
-                RCLCPP_INFO(this->get_logger(), "🔄 Re-registering for next execution cycle...");
+                RCLCPP_INFO(this->get_logger(), "Re-registering for next execution cycle...");
                 register_timer_ = this->create_wall_timer(1s, std::bind(&PriorityDummyTask::register_with_scheduler, this));
                 reregister_timer_->cancel();
             }
@@ -162,7 +162,7 @@ private:
     {
         if (!is_executing_) {
             RCLCPP_INFO(this->get_logger(), 
-                       "💤 [%s | P%d] Waiting for scheduler | Executions completed: %d", 
+                       "[%s | P%d] Waiting for scheduler | Executions completed: %d", 
                        task_id_.c_str(), priority_, execution_count_);
         }
     }

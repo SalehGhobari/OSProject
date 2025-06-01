@@ -4,19 +4,31 @@
 #include <string>
 #include <queue>
 #include <unordered_set>
+#include <unordered_map>
 #include <mutex>
+#include <numeric>
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
 using namespace std::chrono_literals;
+
+struct FCFSTaskMetrics {
+    std::chrono::steady_clock::time_point arrival_time;
+    std::chrono::steady_clock::time_point execution_start_time;
+    std::chrono::steady_clock::time_point execution_end_time;
+    bool execution_started = false;
+    bool execution_completed = false;
+    int queue_position = 0;
+};
 
 class FCFSTaskScheduler : public rclcpp::Node
 {
 public:
     FCFSTaskScheduler()
     : Node("FCFSTaskScheduler"), 
-      current_task_executing_(false),
-      scheduler_started_(false)
+    task_counter_(0),
+    current_task_executing_(false),
+    scheduler_started_(false)
     {
         RCLCPP_INFO(this->get_logger(), "FCFS (First-Come-First-Served) Scheduler initialized");
         
@@ -43,8 +55,14 @@ public:
         
         // Status timer for logging
         status_timer_ = this->create_wall_timer(
-            5s,
+            10s,
             std::bind(&FCFSTaskScheduler::print_status, this)
+        );
+        
+        // Metrics reporting timer
+        metrics_timer_ = this->create_wall_timer(
+            30s,
+            std::bind(&FCFSTaskScheduler::report_metrics, this)
         );
     }
 
@@ -54,6 +72,7 @@ private:
         std::lock_guard<std::mutex> lock(queue_mutex_);
         
         std::string task_id = msg->data;
+        auto now = std::chrono::steady_clock::now();
         
         // Check if task already registered
         if (registered_tasks_.find(task_id) != registered_tasks_.end()) {
@@ -62,16 +81,22 @@ private:
             return;
         }
         
+        // Initialize metrics for this task
+        FCFSTaskMetrics metrics;
+        metrics.arrival_time = now;
+        metrics.queue_position = ++task_counter_;
+        task_metrics_[task_id] = metrics;
+        
         // Add to registered tasks and ready queue
         registered_tasks_.insert(task_id);
         ready_queue_.push(task_id);
         
-        RCLCPP_INFO(this->get_logger(), "📝 Registered task: %s (Queue position: %zu)", 
-                   task_id.c_str(), ready_queue_.size());
+        RCLCPP_INFO(this->get_logger(), "Registered task: %s (Queue position: %d, Total in queue: %zu)", 
+                   task_id.c_str(), metrics.queue_position, ready_queue_.size());
         
         if (!scheduler_started_) {
             scheduler_started_ = true;
-            RCLCPP_INFO(this->get_logger(), "🚀 FCFS Scheduler started!");
+            RCLCPP_INFO(this->get_logger(), "FCFS Scheduler started!");
         }
     }
     
@@ -80,9 +105,17 @@ private:
         std::lock_guard<std::mutex> lock(queue_mutex_);
         
         std::string completed_task = msg->data;
+        auto now = std::chrono::steady_clock::now();
         
         if (current_executing_task_ == completed_task) {
-            RCLCPP_INFO(this->get_logger(), "✅ Task %s completed execution", completed_task.c_str());
+            RCLCPP_INFO(this->get_logger(), "Task %s completed execution", completed_task.c_str());
+            
+            // Update metrics
+            if (task_metrics_.find(completed_task) != task_metrics_.end()) {
+                task_metrics_[completed_task].execution_end_time = now;
+                task_metrics_[completed_task].execution_completed = true;
+            }
+            
             current_task_executing_ = false;
             current_executing_task_.clear();
             
@@ -103,11 +136,19 @@ private:
             std::string next_task = ready_queue_.front();
             ready_queue_.pop();
             
+            auto now = std::chrono::steady_clock::now();
+            
+            // Update metrics
+            if (task_metrics_.find(next_task) != task_metrics_.end()) {
+                task_metrics_[next_task].execution_start_time = now;
+                task_metrics_[next_task].execution_started = true;
+            }
+            
             // Start executing the next task
             current_task_executing_ = true;
             current_executing_task_ = next_task;
             
-            RCLCPP_INFO(this->get_logger(), "🎯 Granting execution to task: %s (Queue remaining: %zu)", 
+            RCLCPP_INFO(this->get_logger(), "Granting execution to task: %s (Queue remaining: %zu)", 
                        next_task.c_str(), ready_queue_.size());
             
             // Send grant message
@@ -123,12 +164,89 @@ private:
         
         if (scheduler_started_) {
             RCLCPP_INFO(this->get_logger(), 
-                       "📊 FCFS Status - Registered: %zu | Queue: %zu | Executing: %s | Completed: %zu",
+                       "FCFS Status - Registered: %zu | Queue: %zu | Executing: %s | Completed: %zu",
                        registered_tasks_.size(),
                        ready_queue_.size(),
                        current_task_executing_ ? current_executing_task_.c_str() : "None",
                        completed_tasks_.size());
         }
+    }
+    
+    void report_metrics()
+    {
+        std::lock_guard<std::mutex> lock(queue_mutex_);
+        
+        if (task_metrics_.empty()) {
+            return;
+        }
+        
+        std::vector<double> waiting_times;
+        std::vector<double> turnaround_times;
+        std::vector<double> response_times;
+        
+        auto current_time = std::chrono::steady_clock::now();
+        
+        RCLCPP_INFO(this->get_logger(), "=== FCFS PERFORMANCE METRICS REPORT ===");
+        
+        for (const auto& [task_id, metrics] : task_metrics_) {
+            if (!metrics.execution_started) {
+                // Task hasn't been scheduled yet
+                auto waiting_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    current_time - metrics.arrival_time).count();
+                
+                RCLCPP_INFO(this->get_logger(), 
+                           "Task %s: Position=%d, Still waiting (%.1fms so far)",
+                           task_id.c_str(), metrics.queue_position, (double)waiting_time_ms);
+                continue;
+            }
+            
+            // Response time: time from arrival to start of execution
+            auto response_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                metrics.execution_start_time - metrics.arrival_time).count();
+            response_times.push_back(response_time_ms);
+            
+            // Waiting time: same as response time in FCFS (no preemption)
+            waiting_times.push_back(response_time_ms);
+            
+            // Turnaround time: time from arrival to completion
+            double turnaround_time_ms;
+            if (metrics.execution_completed) {
+                turnaround_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    metrics.execution_end_time - metrics.arrival_time).count();
+            } else {
+                // Task is still executing
+                turnaround_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    current_time - metrics.arrival_time).count();
+            }
+            turnaround_times.push_back(turnaround_time_ms);
+            
+            // Execution time (if completed)
+            double execution_time_ms = 0;
+            if (metrics.execution_completed) {
+                execution_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    metrics.execution_end_time - metrics.execution_start_time).count();
+            }
+            
+            std::string status = metrics.execution_completed ? "Completed" : "Executing";
+            
+            RCLCPP_INFO(this->get_logger(), 
+                       "Task %s: Position=%d, Status=%s, Response=%.1fms, Waiting=%.1fms, Turnaround=%.1fms, Execution=%.1fms",
+                       task_id.c_str(), metrics.queue_position, status.c_str(),
+                       (double)response_time_ms, (double)response_time_ms, 
+                       turnaround_time_ms, execution_time_ms);
+        }
+        
+        // Calculate and report averages
+        if (!response_times.empty()) {
+            double avg_response = std::accumulate(response_times.begin(), response_times.end(), 0.0) / response_times.size();
+            double avg_waiting = std::accumulate(waiting_times.begin(), waiting_times.end(), 0.0) / waiting_times.size();
+            double avg_turnaround = std::accumulate(turnaround_times.begin(), turnaround_times.end(), 0.0) / turnaround_times.size();
+            
+            RCLCPP_INFO(this->get_logger(), "AVERAGES: Response=%.1fms, Waiting=%.1fms, Turnaround=%.1fms",
+                       avg_response, avg_waiting, avg_turnaround);
+        }
+        
+        RCLCPP_INFO(this->get_logger(), "=========================================");
     }
     
     // Communication
@@ -139,11 +257,16 @@ private:
     // Timers
     rclcpp::TimerBase::SharedPtr scheduler_timer_;
     rclcpp::TimerBase::SharedPtr status_timer_;
+    rclcpp::TimerBase::SharedPtr metrics_timer_;
     
     // Task management
     std::queue<std::string> ready_queue_;
     std::unordered_set<std::string> registered_tasks_;
     std::unordered_set<std::string> completed_tasks_;
+    
+    // Metrics tracking
+    std::unordered_map<std::string, FCFSTaskMetrics> task_metrics_;
+    int task_counter_;
     
     // Execution state
     bool current_task_executing_;

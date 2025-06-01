@@ -1,0 +1,44 @@
+[ 33%] Built target roundrobintaskscheduler
+[ 33%] Built target priorityscheduler
+[ 50%] Built target dummytasknoderr
+[ 66%] Built target dummytasknodepriority
+[ 75%] [32mBuilding CXX object CMakeFiles/fcfsscheduler.dir/src/fcfsscheduler.cpp.o[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/dummytasknodefcfs.dir/src/dummytasknodefcfs.cpp.o[0m
+[01m[K/home/saleh/Desktop/OSProject/scheduler_node/src/fcfsscheduler.cpp:[m[K In constructor ‘[01m[KFCFSTaskScheduler::[01;32m[KFCFSTaskScheduler[m[K()[m[K’:
+[01m[K/home/saleh/Desktop/OSProject/scheduler_node/src/fcfsscheduler.cpp:274:10:[m[K [01;35m[Kwarning: [m[K‘[01m[KFCFSTaskScheduler::scheduler_started_[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  274 |     bool [01;35m[Kscheduler_started_[m[K;
+      |          [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/saleh/Desktop/OSProject/scheduler_node/src/fcfsscheduler.cpp:269:9:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint FCFSTaskScheduler::task_counter_[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+  269 |     int [01;35m[Ktask_counter_[m[K;
+      |         [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/saleh/Desktop/OSProject/scheduler_node/src/fcfsscheduler.cpp:27:5:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   27 |     [01;35m[KFCFSTaskScheduler[m[K()
+      |     [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[ 91%] [32m[1mLinking CXX executable fcfsscheduler[0m
+[100%] [32m[1mLinking CXX executable dummytasknodefcfs[0m
+[100%] Built target fcfsscheduler
+[100%] Built target dummytasknodefcfs
+-- Install configuration: ""
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/roundrobintaskscheduler
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/dummytasknoderr
+-- Installing: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/dummytasknodefcfs
+-- Set non-toolchain portion of runtime path of "/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/dummytasknodefcfs" to ""
+-- Installing: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/fcfsscheduler
+-- Set non-toolchain portion of runtime path of "/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/fcfsscheduler" to ""
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/priorityscheduler
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/dummytasknodepriority
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/ament_index/resource_index/package_run_dependencies/scheduler_node
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/ament_index/resource_index/parent_prefix_path/scheduler_node
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/ament_prefix_path.sh
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/path.sh
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/path.dsv
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.bash
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.sh
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.zsh
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.dsv
+-- Installing: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.dsv
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/ament_index/resource_index/packages/scheduler_node
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/cmake/scheduler_nodeConfig.cmake
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/cmake/scheduler_nodeConfig-version.cmake
+-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.xml

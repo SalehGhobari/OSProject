@@ -1,0 +1,164 @@
+[0.000000] (-) TimerEvent: {}
+[0.000227] (scheduler_node) JobQueued: {'identifier': 'scheduler_node', 'dependencies': OrderedDict()}
+[0.000613] (scheduler_node) JobStarted: {'identifier': 'scheduler_node'}
+[0.014011] (scheduler_node) JobProgress: {'identifier': 'scheduler_node', 'progress': 'cmake'}
+[0.046093] (scheduler_node) JobProgress: {'identifier': 'scheduler_node', 'progress': 'build'}
+[0.046784] (scheduler_node) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node', '--', '-j8', '-l8'], 'cwd': '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'saleh', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/saleh', 'OLDPWD': '/home/saleh/Desktop/OSProject', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2395', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/saleh/Desktop/OSProject/scheduler_node/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'saleh', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'saleh', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/TutelsPC:@/tmp/.ICE-unix/2168,unix/TutelsPC:/tmp/.ICE-unix/2168', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/1679f915_85bf_4be7_856c_7a259fb4b60f', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.R59462', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.176', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.104846] (-) TimerEvent: {}
+[0.137402] (scheduler_node) StdoutLine: {'line': b'[ 16%] Built target dummytasknodepriority\n'}
+[0.140975] (scheduler_node) StdoutLine: {'line': b'[ 33%] Built target priorityscheduler\n'}
+[0.143156] (scheduler_node) StdoutLine: {'line': b'[ 50%] Built target roundrobintaskscheduler\n'}
+[0.143574] (scheduler_node) StdoutLine: {'line': b'[ 66%] Built target dummytasknoderr\n'}
+[0.169493] (scheduler_node) StdoutLine: {'line': b'[ 83%] Built target dummytasknodefcfs\n'}
+[0.171840] (scheduler_node) StdoutLine: {'line': b'[ 91%] \x1b[32mBuilding CXX object CMakeFiles/fcfsscheduler.dir/src/fcfsscheduler.cpp.o\x1b[0m\n'}
+[0.204917] (-) TimerEvent: {}
+[0.305220] (-) TimerEvent: {}
+[0.405529] (-) TimerEvent: {}
+[0.505807] (-) TimerEvent: {}
+[0.606042] (-) TimerEvent: {}
+[0.706295] (-) TimerEvent: {}
+[0.806537] (-) TimerEvent: {}
+[0.906816] (-) TimerEvent: {}
+[1.007062] (-) TimerEvent: {}
+[1.107343] (-) TimerEvent: {}
+[1.207635] (-) TimerEvent: {}
+[1.307980] (-) TimerEvent: {}
+[1.408252] (-) TimerEvent: {}
+[1.508526] (-) TimerEvent: {}
+[1.611782] (-) TimerEvent: {}
+[1.712405] (-) TimerEvent: {}
+[1.812717] (-) TimerEvent: {}
+[1.913023] (-) TimerEvent: {}
+[2.013301] (-) TimerEvent: {}
+[2.113591] (-) TimerEvent: {}
+[2.213844] (-) TimerEvent: {}
+[2.314101] (-) TimerEvent: {}
+[2.414371] (-) TimerEvent: {}
+[2.514655] (-) TimerEvent: {}
+[2.614940] (-) TimerEvent: {}
+[2.715280] (-) TimerEvent: {}
+[2.815541] (-) TimerEvent: {}
+[2.915741] (-) TimerEvent: {}
+[3.016051] (-) TimerEvent: {}
+[3.116323] (-) TimerEvent: {}
+[3.127449] (scheduler_node) StderrLine: {'line': b'\x1b[01m\x1b[K/home/saleh/Desktop/OSProject/scheduler_node/src/fcfsscheduler.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KFCFSTaskScheduler::\x1b[01;32m\x1b[KFCFSTaskScheduler\x1b[m\x1b[K()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.127950] (scheduler_node) StderrLine: {'line': b'\x1b[01m\x1b[K/home/saleh/Desktop/OSProject/scheduler_node/src/fcfsscheduler.cpp:272:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KFCFSTaskScheduler::current_task_executing_\x1b[m\x1b[K\xe2\x80\x99 will be initialized after [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Wreorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.128194] (scheduler_node) StderrLine: {'line': b'  272 |     bool \x1b[01;35m\x1b[Kcurrent_task_executing_\x1b[m\x1b[K;\n'}
+[3.128349] (scheduler_node) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.128501] (scheduler_node) StderrLine: {'line': b'\x1b[01m\x1b[K/home/saleh/Desktop/OSProject/scheduler_node/src/fcfsscheduler.cpp:269:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  \xe2\x80\x98\x1b[01m\x1b[Kint FCFSTaskScheduler::task_counter_\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Wreorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.128662] (scheduler_node) StderrLine: {'line': b'  269 |     int \x1b[01;35m\x1b[Ktask_counter_\x1b[m\x1b[K;\n'}
+[3.128841] (scheduler_node) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.128991] (scheduler_node) StderrLine: {'line': b'\x1b[01m\x1b[K/home/saleh/Desktop/OSProject/scheduler_node/src/fcfsscheduler.cpp:27:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K  when initialized here [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder\x07-Wreorder\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.129142] (scheduler_node) StderrLine: {'line': b'   27 |     \x1b[01;35m\x1b[KFCFSTaskScheduler\x1b[m\x1b[K()\n'}
+[3.129286] (scheduler_node) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.216453] (-) TimerEvent: {}
+[3.316758] (-) TimerEvent: {}
+[3.417099] (-) TimerEvent: {}
+[3.517385] (-) TimerEvent: {}
+[3.617720] (-) TimerEvent: {}
+[3.718151] (-) TimerEvent: {}
+[3.818415] (-) TimerEvent: {}
+[3.918722] (-) TimerEvent: {}
+[4.019008] (-) TimerEvent: {}
+[4.119313] (-) TimerEvent: {}
+[4.219634] (-) TimerEvent: {}
+[4.319926] (-) TimerEvent: {}
+[4.420278] (-) TimerEvent: {}
+[4.520563] (-) TimerEvent: {}
+[4.620841] (-) TimerEvent: {}
+[4.721406] (-) TimerEvent: {}
+[4.821783] (-) TimerEvent: {}
+[4.922072] (-) TimerEvent: {}
+[5.022377] (-) TimerEvent: {}
+[5.122710] (-) TimerEvent: {}
+[5.223004] (-) TimerEvent: {}
+[5.323355] (-) TimerEvent: {}
+[5.423654] (-) TimerEvent: {}
+[5.523964] (-) TimerEvent: {}
+[5.624241] (-) TimerEvent: {}
+[5.724651] (-) TimerEvent: {}
+[5.824972] (-) TimerEvent: {}
+[5.925370] (-) TimerEvent: {}
+[6.025701] (-) TimerEvent: {}
+[6.126009] (-) TimerEvent: {}
+[6.226345] (-) TimerEvent: {}
+[6.326661] (-) TimerEvent: {}
+[6.426972] (-) TimerEvent: {}
+[6.527267] (-) TimerEvent: {}
+[6.627595] (-) TimerEvent: {}
+[6.727911] (-) TimerEvent: {}
+[6.828210] (-) TimerEvent: {}
+[6.928537] (-) TimerEvent: {}
+[7.028865] (-) TimerEvent: {}
+[7.129242] (-) TimerEvent: {}
+[7.229562] (-) TimerEvent: {}
+[7.330137] (-) TimerEvent: {}
+[7.430786] (-) TimerEvent: {}
+[7.531191] (-) TimerEvent: {}
+[7.631525] (-) TimerEvent: {}
+[7.731957] (-) TimerEvent: {}
+[7.832409] (-) TimerEvent: {}
+[7.932726] (-) TimerEvent: {}
+[8.033044] (-) TimerEvent: {}
+[8.133347] (-) TimerEvent: {}
+[8.233737] (-) TimerEvent: {}
+[8.334129] (-) TimerEvent: {}
+[8.434528] (-) TimerEvent: {}
+[8.534831] (-) TimerEvent: {}
+[8.635155] (-) TimerEvent: {}
+[8.735504] (-) TimerEvent: {}
+[8.835870] (-) TimerEvent: {}
+[8.936237] (-) TimerEvent: {}
+[9.036533] (-) TimerEvent: {}
+[9.137089] (-) TimerEvent: {}
+[9.237519] (-) TimerEvent: {}
+[9.337977] (-) TimerEvent: {}
+[9.438268] (-) TimerEvent: {}
+[9.538591] (-) TimerEvent: {}
+[9.638888] (-) TimerEvent: {}
+[9.739296] (-) TimerEvent: {}
+[9.839551] (-) TimerEvent: {}
+[9.939855] (-) TimerEvent: {}
+[10.040198] (-) TimerEvent: {}
+[10.140533] (-) TimerEvent: {}
+[10.240859] (-) TimerEvent: {}
+[10.341147] (-) TimerEvent: {}
+[10.441439] (-) TimerEvent: {}
+[10.544308] (-) TimerEvent: {}
+[10.644743] (-) TimerEvent: {}
+[10.681360] (scheduler_node) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable fcfsscheduler\x1b[0m\n'}
+[10.744854] (-) TimerEvent: {}
+[10.845197] (-) TimerEvent: {}
+[10.945815] (-) TimerEvent: {}
+[11.046125] (-) TimerEvent: {}
+[11.094953] (scheduler_node) StdoutLine: {'line': b'[100%] Built target fcfsscheduler\n'}
+[11.110189] (scheduler_node) CommandEnded: {'returncode': 0}
+[11.111061] (scheduler_node) JobProgress: {'identifier': 'scheduler_node', 'progress': 'install'}
+[11.122601] (scheduler_node) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node'], 'cwd': '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'saleh', 'XDG_SESSION_TYPE': 'wayland', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/x86_64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/saleh', 'OLDPWD': '/home/saleh/Desktop/OSProject', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'SYSTEMD_EXEC_PID': '2395', 'GSM_SKIP_SSH_AGENT_WORKAROUND': 'true', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'GNOME_KEYRING_CONTROL': '/run/user/1000/keyring', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'IM_CONFIG_PHASE': '1', 'WAYLAND_DISPLAY': 'wayland-0', 'COLCON_PREFIX_PATH': '/home/saleh/Desktop/OSProject/scheduler_node/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'saleh', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'MEMORY_PRESSURE_WATCH': '/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/session.slice/org.gnome.SettingsDaemon.MediaKeys.service/memory.pressure', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'saleh', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/TutelsPC:@/tmp/.ICE-unix/2168,unix/TutelsPC:/tmp/.ICE-unix/2168', 'XDG_MENU_PREFIX': 'gnome-', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/1679f915_85bf_4be7_856c_7a259fb4b60f', 'GNOME_SETUP_DISPLAY': ':1', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':0', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/.mutter-Xwaylandauth.R59462', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'GNOME_TERMINAL_SERVICE': ':1.176', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/saleh/Desktop/OSProject/scheduler_node/build/scheduler_node', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'MEMORY_PRESSURE_WRITE': 'c29tZSAyMDAwMDAgMjAwMDAwMAA=', 'VTE_VERSION': '7600', 'CMAKE_PREFIX_PATH': '/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[11.133804] (scheduler_node) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[11.134344] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/roundrobintaskscheduler\n'}
+[11.134884] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/dummytasknoderr\n'}
+[11.135449] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/dummytasknodefcfs\n'}
+[11.136000] (scheduler_node) StdoutLine: {'line': b'-- Installing: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/fcfsscheduler\n'}
+[11.143044] (scheduler_node) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/fcfsscheduler" to ""\n'}
+[11.143293] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/priorityscheduler\n'}
+[11.143755] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/lib/scheduler_node/dummytasknodepriority\n'}
+[11.144039] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/ament_index/resource_index/package_run_dependencies/scheduler_node\n'}
+[11.144312] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/ament_index/resource_index/parent_prefix_path/scheduler_node\n'}
+[11.144611] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/ament_prefix_path.sh\n'}
+[11.144800] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/ament_prefix_path.dsv\n'}
+[11.145050] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/path.sh\n'}
+[11.145201] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/environment/path.dsv\n'}
+[11.145351] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.bash\n'}
+[11.145499] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.sh\n'}
+[11.145648] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.zsh\n'}
+[11.145778] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/local_setup.dsv\n'}
+[11.145876] (scheduler_node) StdoutLine: {'line': b'-- Installing: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.dsv\n'}
+[11.145972] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/ament_index/resource_index/packages/scheduler_node\n'}
+[11.146077] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/cmake/scheduler_nodeConfig.cmake\n'}
+[11.146174] (-) TimerEvent: {}
+[11.146287] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/cmake/scheduler_nodeConfig-version.cmake\n'}
+[11.146407] (scheduler_node) StdoutLine: {'line': b'-- Up-to-date: /home/saleh/Desktop/OSProject/scheduler_node/install/scheduler_node/share/scheduler_node/package.xml\n'}
+[11.147400] (scheduler_node) CommandEnded: {'returncode': 0}
+[11.169067] (scheduler_node) JobEnded: {'identifier': 'scheduler_node', 'rc': 0}
+[11.170492] (-) EventReactorShutdown: {}

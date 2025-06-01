@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <queue>
 #include <sstream>
+#include <numeric>
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
@@ -24,6 +25,17 @@ struct TaskInfo {
         }
         return registration_time > other.registration_time; // Earlier time = higher precedence
     }
+};
+
+struct TaskMetrics {
+    std::chrono::steady_clock::time_point arrival_time;
+    std::chrono::steady_clock::time_point first_execution_time;
+    std::chrono::steady_clock::time_point last_execution_time;
+    std::vector<std::chrono::steady_clock::time_point> execution_starts;
+    std::vector<std::chrono::steady_clock::time_point> execution_ends;
+    int execution_count = 0;
+    bool first_execution_received = false;
+    int priority = 0;
 };
 
 class PriorityTaskScheduler : public rclcpp::Node
@@ -57,6 +69,12 @@ public:
             100ms, 
             std::bind(&PriorityTaskScheduler::startup_check, this)
         );
+        
+        // Metrics reporting timer (every 30 seconds)
+        metrics_timer_ = this->create_wall_timer(
+            30s,
+            std::bind(&PriorityTaskScheduler::report_metrics, this)
+        );
     }
 
 private:
@@ -88,14 +106,22 @@ private:
             return;
         }
         
+        auto now = std::chrono::steady_clock::now();
+        
         // Register the task
         TaskInfo task_info;
         task_info.task_id = task_id;
         task_info.priority = priority;
-        task_info.registration_time = std::chrono::steady_clock::now();
+        task_info.registration_time = now;
         
         registered_tasks_[task_id] = task_info;
         task_queue_.push(task_info);
+        
+        // Initialize metrics for this task
+        TaskMetrics metrics;
+        metrics.arrival_time = now;
+        metrics.priority = priority;
+        task_metrics_[task_id] = metrics;
         
         RCLCPP_INFO(this->get_logger(), "Registered task: %s with priority: %d (Total tasks: %zu)", 
                    task_id.c_str(), priority, registered_tasks_.size());
@@ -109,8 +135,17 @@ private:
     void complete_callback(const std_msgs::msg::String::SharedPtr msg)
     {
         std::string completed_task = msg->data;
+        auto now = std::chrono::steady_clock::now();
         
         RCLCPP_INFO(this->get_logger(), "Task completed: %s", completed_task.c_str());
+        
+        // Update metrics for completed task
+        if (task_metrics_.find(completed_task) != task_metrics_.end()) {
+            task_metrics_[completed_task].execution_ends.push_back(now);
+            task_metrics_[completed_task].last_execution_time = now;
+            
+            RCLCPP_DEBUG(this->get_logger(), "Updated metrics for completed task: %s", completed_task.c_str());
+        }
         
         // Mark that no task is currently executing
         if (current_executing_task_ == completed_task) {
@@ -173,6 +208,21 @@ private:
             return;
         }
         
+        auto now = std::chrono::steady_clock::now();
+        
+        // Update metrics for this task
+        if (task_metrics_.find(next_task.task_id) != task_metrics_.end()) {
+            auto& metrics = task_metrics_[next_task.task_id];
+            
+            if (!metrics.first_execution_received) {
+                metrics.first_execution_time = now;
+                metrics.first_execution_received = true;
+            }
+            
+            metrics.execution_starts.push_back(now);
+            metrics.execution_count++;
+        }
+        
         // Grant execution to the highest priority task
         current_executing_task_ = next_task.task_id;
         task_executing_ = true;
@@ -202,6 +252,73 @@ private:
         }
     }
     
+    void report_metrics()
+    {
+        if (task_metrics_.empty()) {
+            return;
+        }
+        
+        std::vector<double> waiting_times;
+        std::vector<double> turnaround_times;
+        std::vector<double> response_times;
+        
+        auto current_time = std::chrono::steady_clock::now();
+        
+        RCLCPP_INFO(this->get_logger(), "=== PRIORITY SCHEDULER METRICS REPORT ===");
+        
+        for (const auto& [task_id, metrics] : task_metrics_) {
+            if (!metrics.first_execution_received) {
+                continue; // Skip tasks that haven't been scheduled yet
+            }
+            
+            // Response time: time from arrival to first execution
+            auto response_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                metrics.first_execution_time - metrics.arrival_time).count();
+            response_times.push_back(response_time_ms);
+            
+            // Calculate waiting time (total time spent waiting between executions)
+            double total_waiting_time_ms = response_time_ms; // Initial wait time
+            
+            for (size_t i = 1; i < metrics.execution_starts.size(); ++i) {
+                if (i - 1 < metrics.execution_ends.size()) {
+                    auto wait_time = std::chrono::duration_cast<std::chrono::milliseconds>(
+                        metrics.execution_starts[i] - metrics.execution_ends[i-1]).count();
+                    total_waiting_time_ms += wait_time;
+                }
+            }
+            
+            waiting_times.push_back(total_waiting_time_ms);
+            
+            // Turnaround time: total time from arrival to last completion
+            double turnaround_time_ms;
+            if (!metrics.execution_ends.empty()) {
+                turnaround_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    metrics.execution_ends.back() - metrics.arrival_time).count();
+            } else {
+                // If no completion recorded, use current time
+                turnaround_time_ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                    current_time - metrics.arrival_time).count();
+            }
+            turnaround_times.push_back(turnaround_time_ms);
+            
+            RCLCPP_INFO(this->get_logger(), 
+                       "Task %s (P%d): Executions=%d, Response=%.1fms, Waiting=%.1fms, Turnaround=%.1fms",
+                       task_id.c_str(), metrics.priority, metrics.execution_count, 
+                       (double)response_time_ms, total_waiting_time_ms, turnaround_time_ms);
+        }
+        
+        if (!waiting_times.empty()) {
+            double avg_waiting = std::accumulate(waiting_times.begin(), waiting_times.end(), 0.0) / waiting_times.size();
+            double avg_turnaround = std::accumulate(turnaround_times.begin(), turnaround_times.end(), 0.0) / turnaround_times.size();
+            double avg_response = std::accumulate(response_times.begin(), response_times.end(), 0.0) / response_times.size();
+            
+            RCLCPP_INFO(this->get_logger(), "AVERAGES: Response=%.1fms, Waiting=%.1fms, Turnaround=%.1fms",
+                       avg_response, avg_waiting, avg_turnaround);
+        }
+        
+        RCLCPP_INFO(this->get_logger(), "==========================================");
+    }
+    
     // Subscribers
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr register_subscriber_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr complete_subscriber_;
@@ -212,10 +329,14 @@ private:
     // Timers
     rclcpp::TimerBase::SharedPtr scheduler_timer_;
     rclcpp::TimerBase::SharedPtr startup_timer_;
+    rclcpp::TimerBase::SharedPtr metrics_timer_;
     
     // Task management
     std::unordered_map<std::string, TaskInfo> registered_tasks_;
     std::priority_queue<TaskInfo> task_queue_;
+    
+    // Metrics tracking
+    std::unordered_map<std::string, TaskMetrics> task_metrics_;
     
     // Scheduling state
     bool scheduler_started_;
@@ -229,9 +350,10 @@ int main(int argc, char *argv[])
     
     auto scheduler = std::make_shared<PriorityTaskScheduler>();
     
-    RCLCPP_INFO(rclcpp::get_logger("main"), "Starting Priority Scheduler...");
+    RCLCPP_INFO(rclcpp::get_logger("main"), "Starting Priority Scheduler with Metrics...");
     RCLCPP_INFO(rclcpp::get_logger("main"), "Tasks should register with format: 'task_id:priority'");
     RCLCPP_INFO(rclcpp::get_logger("main"), "Higher priority numbers have higher precedence");
+    RCLCPP_INFO(rclcpp::get_logger("main"), "Metrics will be reported every 30 seconds");
     
     rclcpp::spin(scheduler);
     rclcpp::shutdown();

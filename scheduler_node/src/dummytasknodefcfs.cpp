@@ -3,6 +3,7 @@
 #include <string>
 #include <random>
 #include <thread>
+#include <cmath>
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
@@ -44,7 +45,7 @@ public:
         
         // Periodic status update (only when not executing)
         status_timer_ = this->create_wall_timer(
-            8s, 
+            12s, 
             std::bind(&FCFSDummyTask::status_update, this)
         );
     }
@@ -55,7 +56,7 @@ private:
         auto registration_msg = std_msgs::msg::String();
         registration_msg.data = task_id_;
         
-        RCLCPP_INFO(this->get_logger(), "📝 Registering with FCFS scheduler as '%s'", task_id_.c_str());
+        RCLCPP_INFO(this->get_logger(), "Registering with FCFS scheduler as '%s'", task_id_.c_str());
         register_publisher_->publish(registration_msg);
         
         // Keep registering periodically until we get scheduled (in case scheduler starts later)
@@ -72,7 +73,7 @@ private:
             register_timer_->cancel();
             
             RCLCPP_INFO(this->get_logger(), 
-                       "🚀 Granted execution permission! Starting task execution #%d...", 
+                       "Granted execution permission! Starting task execution #%d...", 
                        execution_count_);
             
             // Execute the task in a separate thread to avoid blocking ROS callbacks
@@ -96,7 +97,7 @@ private:
         }
         
         RCLCPP_INFO(this->get_logger(), 
-                   "⚙️  Executing task for %d ms...", execution_time_ms);
+                   "Executing task for %d ms...", execution_time_ms);
         
         // Simulate different phases of work
         int phases = 4;
@@ -110,14 +111,14 @@ private:
             simulate_cpu_work();
             
             RCLCPP_INFO(this->get_logger(), 
-                       "  📈 Phase %d/%d completed", phase, phases);
+                       "  Phase %d/%d completed", phase, phases);
         }
         
         auto end_time = std::chrono::steady_clock::now();
         auto actual_duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
         
         RCLCPP_INFO(this->get_logger(), 
-                   "✅ Task execution completed! (Actual time: %ld ms)", 
+                   "Task execution completed! (Actual time: %ld ms)", 
                    actual_duration.count());
         
         // Notify scheduler of completion
@@ -127,7 +128,7 @@ private:
         
         is_executing_ = false;
         
-        RCLCPP_INFO(this->get_logger(), "📤 Sent completion notification to scheduler");
+        RCLCPP_INFO(this->get_logger(), "Sent completion notification to scheduler");
     }
     
     void simulate_cpu_work()
@@ -135,7 +136,7 @@ private:
         // Simulate CPU-intensive work
         volatile long dummy_computation = 0;
         for (int i = 0; i < 100000; ++i) {
-            dummy_computation += i * i + std::sqrt(i);
+            dummy_computation += i * i + static_cast<long>(std::sqrt(i));
         }
     }
     
@@ -143,7 +144,7 @@ private:
     {
         if (!is_executing_) {
             RCLCPP_INFO(this->get_logger(), 
-                       "💤 [%s] Waiting for scheduler | Executions completed: %d", 
+                       "[%s] Waiting for scheduler | Executions completed: %d", 
                        task_id_.c_str(), execution_count_);
         }
     }

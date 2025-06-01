@@ -2,6 +2,7 @@
 #include <memory>
 #include <string>
 #include <random>
+#include <thread>
 #include "rclcpp/rclcpp.hpp"
 #include "std_msgs/msg/string.hpp"
 
@@ -21,6 +22,9 @@ public:
         // Create publisher for registration
         register_publisher_ = this->create_publisher<std_msgs::msg::String>("register", 10);
         
+        // Create publisher for task completion notifications
+        completion_publisher_ = this->create_publisher<std_msgs::msg::String>("task_complete", 10);
+        
         // Subscribe to grant topic to receive time quantum allocations
         grant_subscriber_ = this->create_subscription<std_msgs::msg::String>(
             "grant", 10,
@@ -34,7 +38,7 @@ public:
         
         // Periodic status update
         status_timer_ = this->create_wall_timer(
-            10s, 
+            15s, 
             std::bind(&DummyTaskNode::status_update, this)
         );
     }
@@ -57,13 +61,24 @@ private:
         if (msg->data == task_id_) {
             execution_count_++;
             RCLCPP_INFO(this->get_logger(), 
-                       "🚀 Received time quantum #%d! Executing task...", 
+                       "Received time quantum #%d! Executing task...", 
                        execution_count_);
+            
+            // Record execution start time
+            auto execution_start = std::chrono::steady_clock::now();
             
             // Simulate some work
             execute_dummy_work();
             
-            RCLCPP_INFO(this->get_logger(), "✅ Task execution completed.");
+            // Record execution end time
+            auto execution_end = std::chrono::steady_clock::now();
+            auto execution_duration = std::chrono::duration_cast<std::chrono::milliseconds>(
+                execution_end - execution_start).count();
+            
+            RCLCPP_INFO(this->get_logger(), "Task execution completed in %ldms", execution_duration);
+            
+            // Notify scheduler about completion
+            notify_completion();
         }
     }
     
@@ -71,20 +86,20 @@ private:
     {
         // Simulate different types of work with random duration
         std::uniform_int_distribution<int> work_type_dist(1, 3);
-        std::uniform_int_distribution<int> duration_dist(50, 200);
+        std::uniform_int_distribution<int> duration_dist(50, 300);
         
         int work_type = work_type_dist(random_generator_);
         int work_duration = duration_dist(random_generator_);
         
         switch (work_type) {
             case 1:
-                RCLCPP_INFO(this->get_logger(), "  → Processing data simulation (%dms)", work_duration);
+                RCLCPP_INFO(this->get_logger(), "  -> Processing data simulation (%dms)", work_duration);
                 break;
             case 2:
-                RCLCPP_INFO(this->get_logger(), "  → Computing algorithm simulation (%dms)", work_duration);
+                RCLCPP_INFO(this->get_logger(), "  -> Computing algorithm simulation (%dms)", work_duration);
                 break;
             case 3:
-                RCLCPP_INFO(this->get_logger(), "  → I/O operation simulation (%dms)", work_duration);
+                RCLCPP_INFO(this->get_logger(), "  -> I/O operation simulation (%dms)", work_duration);
                 break;
         }
         
@@ -93,15 +108,24 @@ private:
         
         // Simulate some computational work
         volatile int dummy_computation = 0;
-        for (int i = 0; i < 10000; ++i) {
+        for (int i = 0; i < 50000; ++i) {
             dummy_computation += i * i;
         }
+    }
+    
+    void notify_completion()
+    {
+        auto completion_msg = std_msgs::msg::String();
+        completion_msg.data = task_id_;
+        completion_publisher_->publish(completion_msg);
+        
+        RCLCPP_DEBUG(this->get_logger(), "Notified scheduler of completion");
     }
     
     void status_update()
     {
         RCLCPP_INFO(this->get_logger(), 
-                   "📊 [%s] Status: Alive | Executions: %d | Waiting for scheduler...", 
+                   "[%s] Status: Alive | Executions: %d | Waiting for scheduler...", 
                    task_id_.c_str(), execution_count_);
     }
     
@@ -110,6 +134,7 @@ private:
     
     // Communication
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr register_publisher_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr completion_publisher_;
     rclcpp::Subscription<std_msgs::msg::String>::SharedPtr grant_subscriber_;
     
     // Timers
